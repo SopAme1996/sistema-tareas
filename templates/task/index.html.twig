@@ -1,0 +1,11 @@
+{% extends 'layout/layout.html.twig' %}
+{% block title %} Home {% endblock %}
+
+ {% block container %}
+    {% for user in users %}
+        <h1>{{ user.name }}</h1>
+        {% for task in user.tasks %}
+            <h2>{{task.title}}</h2>
+        {% endfor %}
+    {% endfor %}
+ {% endblock %}
