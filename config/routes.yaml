@@ -2,6 +2,17 @@ login:
    path: /
    controller: App\Controller\LoginController::index
 
+register:
+   path: /registro
+   controller: App\Controller\LoginController::register
+   methods: [GET, POST]
+
+register-save:
+   path: /registro-save
+   controller: App\Controller\LoginController::saveRegister
+   methods: [GET, POST]
+
+
 home:
    path: /home
    controller: App\Controller\TaskController::index
