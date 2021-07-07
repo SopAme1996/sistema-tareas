@@ -1,0 +1,5 @@
+/* Css para el menu de la aplicacion */
+
+.navbar-collapse{
+    flex-grow: 0 !important;
+}

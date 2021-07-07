@@ -6,15 +6,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 use App\Entity\User;
 use App\Form\RegisterType;
 class LoginController extends AbstractController
 {
-    public function index(): Response
-    {
-        return $this->render('login/index.html.twig');
-    }
-
     public function register(): Response{
         $form = $this->createForm(RegisterType::class);
         // $form->handleRequest($request);
@@ -44,5 +40,17 @@ class LoginController extends AbstractController
         }else{
             //Pendiente
         }
+    }
+
+    public function login(AuthenticationUtils $auth){
+        $error = $auth->getLastAuthenticationError();
+
+        $lastUsername = $auth->getLastUsername();
+
+        return $this->render('login/index.html.twig', [
+            'error' => $error,
+            'last_username' => $lastUsername,
+        ]);
+
     }
 }

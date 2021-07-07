@@ -1,6 +1,10 @@
 login:
    path: /
-   controller: App\Controller\LoginController::index
+   controller: App\Controller\LoginController::login
+
+logout:
+   path: /logout
+   controller: App\Controller\LoginController::logout
 
 register:
    path: /registro
@@ -11,7 +15,6 @@ register-save:
    path: /registro-save
    controller: App\Controller\LoginController::saveRegister
    methods: [GET, POST]
-
 
 home:
    path: /home
