@@ -1,0 +1,15 @@
+{% extends 'layout/layout.html.twig' %}
+{% block title %} 
+
+{% if edit is defined %}
+Editar Task
+{% else %}
+Create Task
+{% endif %}
+{% endblock %}
+
+{% block container %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+{% endblock %}

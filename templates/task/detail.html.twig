@@ -1,0 +1,23 @@
+{% extends 'layout/layout.html.twig' %}
+
+{% block title %} Detalles {% endblock %}
+
+{% block container %}
+    <h2 class="container d-flex justify-content-center"> Detalles de la tarea</h2>
+        <div class="card text-center">
+            <div class="card-header">
+                Tarea # {{task.id}} by {{ task.user.name }}
+            </div>
+                <div class="card-body">
+                    <h4 class="card-title">{{ task.title }}</h4>
+                     <p class="card-text">{{ task.content }}</p>
+                    {# <a href="#" class="btn btn-primary">Go somewhere</a> #}
+                     <figcaption>Prioridad: {{ task.priority }}</figcaption>
+                </div>
+                    <div class="card-footer text-muted">
+                        {{task.hours}} horas de trabajo
+                        <br/>
+                        Tarea creada el: {{task.createdAt|date('d/m/Y h:m:s')}}
+                    </div>
+            </div>
+{% endblock %}

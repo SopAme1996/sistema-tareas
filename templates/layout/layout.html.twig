@@ -22,7 +22,7 @@
 
                                 {% if app.user %}
                                     <li class="nav-item">
-                                        <a class="nav-link active" aria-current="page" href="#">Crear tarea</a>
+                                        <a class="nav-link active" aria-current="page" href="{{ path('task-create') }}">Crear tarea</a>
                                     </li>
 
                                     <li class="nav-item dropdown">
@@ -57,7 +57,7 @@
             {% endblock %}
         </section>
 
-         <section class="container mt-5 d-flex justify-content-center">
+         <section class="container mt-5">
             {% block container %}
             {#{ titulo, logo o menu }#}
             {% endblock %}

@@ -24,46 +24,46 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @var string|null
+     * @var string
      *
      * @ORM\Column(name="role", type="string", length=50, nullable=true, options={"default"="NULL"})
      */
-    private $role = 'NULL';
+    private $role;
 
     /**
-     * @var string|null
+     * @var string
      *
      * @ORM\Column(name="name", type="string", length=100, nullable=true, options={"default"="NULL"})
      */
-    private $name = 'NULL';
+    private $name;
 
     /**
-     * @var string|null
+     * @var string
      *
      * @ORM\Column(name="surname", type="string", length=200, nullable=true, options={"default"="NULL"})
      */
-    private $surname = 'NULL';
+    private $surname;
 
     /**
-     * @var string|null
+     * @var string
      *
      * @ORM\Column(name="email", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $email = 'NULL';
+    private $email;
 
     /**
-     * @var string|null
+     * @var string
      *
      * @ORM\Column(name="password", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $password = 'NULL';
+    private $password;
 
     /**
-     * @var \DateTime|null
+     * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true, options={"default"="NULL"})
      */
-    private $createdAt = 'NULL';
+    private $createdAt;
 
     /** 
         *@ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user")

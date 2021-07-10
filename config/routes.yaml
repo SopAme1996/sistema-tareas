@@ -25,3 +25,23 @@ user:
    path: /user
    controller: App\Controller\UserController::index
    methods: [GET]
+
+task-create:
+   path: /task_create
+   controller: App\Controller\TaskController::crear_task
+   methods: [GET, POST]
+
+view-task:
+   path: /tarea/{id}
+   controller: App\Controller\TaskController::ver_tarea
+   methods: [GET]
+
+delete-task:
+   path: /eliminar/{id}
+   controller: App\Controller\TaskController::eliminar_tarea
+   methods: [GET]
+
+update-task:
+   path: /editar/{id}
+   controller: App\Controller\TaskController::editar_tarea
+   methods: [GET, POST]

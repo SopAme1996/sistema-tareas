@@ -22,39 +22,39 @@ class Task
     private $id;
 
     /**
-     * @var string|null
+     * @var string
      *
      * @ORM\Column(name="title", type="string", length=255, nullable=true, options={"default"="NULL"})
      */
-    private $title = 'NULL';
+    private $title;
 
     /**
-     * @var string|null
+     * @var string
      *
      * @ORM\Column(name="content", type="text", length=65535, nullable=true, options={"default"="NULL"})
      */
-    private $content = 'NULL';
+    private $content;
 
     /**
      * @var string|null
      *
      * @ORM\Column(name="priority", type="string", length=20, nullable=true, options={"default"="NULL"})
      */
-    private $priority = 'NULL';
+    private $priority;
 
     /**
      * @var int|null
      *
      * @ORM\Column(name="hours", type="integer", nullable=true, options={"default"="NULL"})
      */
-    private $hours = NULL;
+    private $hours;
 
     /**
-     * @var \DateTime|null
+     * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true, options={"default"="NULL"})
      */
-    private $createdAt = 'NULL';
+    private $createdAt;
 
     /**
      * @var \User
@@ -131,7 +131,7 @@ class Task
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getUser()
     {
         return $this->user;
     }

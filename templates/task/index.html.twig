@@ -2,10 +2,32 @@
 {% block title %} Home {% endblock %}
 
  {% block container %}
+    <h2 class="container d-flex justify-content-center"> Todas las tareas </h2>
     {% for user in users %}
-        <h1>{{ user.name }}</h1>
+     <div class="row">
+     {% if user.tasks|length > 0 %}
         {% for task in user.tasks %}
-            <h2>{{task.title}}</h2>
+                 <div class="col-sm-6 mt-4">
+                    {% if task.priority == 'High'%}
+                        <div class="card bg-danger text-white">
+                    {% elseif task.priority == 'Medium'%}
+                        <div class="card bg-secondary text-white">
+                    {% elseif task.priority == 'low'%}
+                        <div class="card bg-success text-white">
+                    {% endif %}
+                        <div class="card-body">
+                                <h5 class="card-title">{{task.title}}</h5>
+                                <p class="card-text">{{ task.content }}</p>
+                                <a href="{{ path('view-task', {'id': task.id}) }}" class="btn btn-primary">Ver tarea</a>
+                                <a href="{{ path('update-task', {'id': task.id}) }}" class="btn btn-warning">Editar tarea</a>
+                                <a href="{{ path('delete-task', {'id': task.id}) }}" class="btn btn-danger">Eliminar tarea</a>
+                        </div>
+                    </div>
+                </div>
         {% endfor %}
+        {% else %}
+        <strong> No hay tareas que mostrar </strong>
+    {% endif %}
+    </div>
     {% endfor %}
  {% endblock %}
