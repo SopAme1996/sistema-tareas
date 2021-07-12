@@ -45,3 +45,8 @@ update-task:
    path: /editar/{id}
    controller: App\Controller\TaskController::editar_tarea
    methods: [GET, POST]
+
+modificar-perfil:
+   path: /modificarUser/{id}
+   controller: App\Controller\UserController::modificar
+   methods: [GET, POST]

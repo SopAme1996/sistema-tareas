@@ -3,3 +3,7 @@
 .navbar-collapse{
     flex-grow: 0 !important;
 }
+
+.card-body .card-title {
+    margin-bottom: -0.5rem !important;
+}

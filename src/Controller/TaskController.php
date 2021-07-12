@@ -19,7 +19,7 @@ class TaskController extends AbstractController
         $user = $user_repository->findAll();
 
         if(!$user){
-           $message = "lista vacia!!";
+           $message = "Usuario no encontrado!!";
         }else{
             $message = "200";
         }
@@ -53,11 +53,15 @@ class TaskController extends AbstractController
         return $this->render('task/detail.html.twig', ['task' => $task]);
     }
 
-    public function eliminar_tarea(Task $task){
+    public function eliminar_tarea(Task $task, UserInterface $user){
+        if($user){
         $em = $this->getDoctrine()->getManager();
         $em->remove($task);
         $em->flush();
         return $this->redirectToRoute('home');
+        }else{
+        return $this->redirectToRoute('login');
+        }
     }
 
     public function editar_tarea(Request $request, Task $task, UserInterface $user){

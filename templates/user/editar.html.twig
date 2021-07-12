@@ -1,0 +1,9 @@
+{% extends 'layout/layout.html.twig' %}
+{% block title %} Editar Usuario {% endblock %}
+
+
+{% block container %}
+    {{ form_start(form)}}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

@@ -4,30 +4,35 @@
  {% block container %}
     <h2 class="container d-flex justify-content-center"> Todas las tareas </h2>
     {% for user in users %}
-     <div class="row">
+    <div class="row">
      {% if user.tasks|length > 0 %}
         {% for task in user.tasks %}
-                 <div class="col-sm-6 mt-4">
+                 <div class="col-sm-6 mb-3">
                     {% if task.priority == 'High'%}
                         <div class="card bg-danger text-white">
                     {% elseif task.priority == 'Medium'%}
-                        <div class="card bg-secondary text-white">
+                        <div class="card bg-warning text-white">
                     {% elseif task.priority == 'low'%}
                         <div class="card bg-success text-white">
                     {% endif %}
                         <div class="card-body">
                                 <h5 class="card-title">{{task.title}}</h5>
+                                <small class="autor">Asignado a: {{ user.name }} {{ user.surname }}</small>
                                 <p class="card-text">{{ task.content }}</p>
                                 <a href="{{ path('view-task', {'id': task.id}) }}" class="btn btn-primary">Ver tarea</a>
+                                {% if app.user and (app.user.id == task.user.id) %}
                                 <a href="{{ path('update-task', {'id': task.id}) }}" class="btn btn-warning">Editar tarea</a>
                                 <a href="{{ path('delete-task', {'id': task.id}) }}" class="btn btn-danger">Eliminar tarea</a>
+                                {% endif %}
                         </div>
                     </div>
                 </div>
         {% endfor %}
-        {% else %}
-        <strong> No hay tareas que mostrar </strong>
-    {% endif %}
     </div>
+    {% else %}
+    <ul>
+        <li>Al usuario <strong>{{ user.name }} {{user.surname}} </strong> no se le registro una tarea</li>
+    </ul>
+    {% endif %}
     {% endfor %}
  {% endblock %}
